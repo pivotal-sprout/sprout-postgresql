@@ -1,0 +1,6 @@
+recipes:
+  - sprout-postgresql
+
+#node_attributes:
+#  sprout:
+#    postgresql:
