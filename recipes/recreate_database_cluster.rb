@@ -8,8 +8,11 @@ directory data_directory do
   only_if { recreate_database }
 end
 
+env = {'LC_ALL' => nil}
+
 execute 'recreate database cluster' do
   command "initdb #{data_directory}"
+  environment env
   user node['current_user']
   only_if { recreate_database }
 end
