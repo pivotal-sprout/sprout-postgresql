@@ -19,3 +19,9 @@ execute 'start the daemon' do
   command "launchctl load -w #{launch_agent_plist_filename}"
   user node['current_user']
 end
+
+ruby_block 'wait four seconds for the database to start' do
+  block do
+    sleep 4
+  end
+end
