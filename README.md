@@ -40,7 +40,6 @@ node_attributes:
 1. `sprout-postgresql::remove_launch_agent`
 1. `sprout-postgresql::destroy_database_cluster`
 1. `sprout-postgresql::install_postgres`
-1. `sprout-postgresql::recreate_database_cluster`
 1. `sprout-postgresql::add_launch_agent`
 1. `sprout-postgresql::create_current_user_db`
 
