@@ -65,7 +65,6 @@ GEM
       mixlib-shellout
       systemu (~> 2.5.2)
       yajl-ruby
-    plist (3.1.0)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -91,5 +90,4 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  plist
   soloist
