@@ -1,4 +1,4 @@
-launch_agents_path = File.expand_path('~/Library/LaunchAgents')
+launch_agents_path = File.expand_path(File.join(node.default['sprout']['home'] , 'Library/LaunchAgents'))
 directory launch_agents_path do
   action :create
   recursive true
