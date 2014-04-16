@@ -12,7 +12,9 @@ describe 'sprout-postgresql' do
     }.not_to raise_error
 
     expect {
-      system("sudo -u #{node['current_user']} /usr/local/bin/psql -U postgres < /dev/null")
+      system('/usr/local/bin/psql -U postgres < /dev/null')
     }.to be_true
+
+    expect(`/usr/local/bin/psql -t -c 'SHOW SERVER_ENCODING'`).to match(/UTF8/)
   end
 end
