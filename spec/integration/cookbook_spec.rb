@@ -6,15 +6,29 @@ describe 'sprout-postgresql' do
     expect(system('soloist')).to be_true
   end
 
-  it 'installs and starts postgres' do
+  it 'runs postgres on the default port' do
     expect {
       TCPSocket.open('localhost', 5432).close
     }.not_to raise_error
 
-    expect {
-      system('/usr/local/bin/psql -U postgres < /dev/null')
-    }.to be_true
-
-    expect(`/usr/local/bin/psql -t -c 'SHOW SERVER_ENCODING'`).to match(/UTF8/)
+    expect(system('psql -c "select 1" &> /dev/null')).to be_true
   end
+
+  it 'creates the databases with a UTF-8 encoding' do
+    expect(`/usr/local/bin/psql -t -c 'SHOW SERVER_ENCODING'`.strip).to eq('UTF8')
+  end
+
+  it 'is managed by launchd' do
+    expect(system('launchctl list homebrew.mxcl.postgresql &> /dev/null')).to be_true
+  end
+
+  it 'creates a database for the current user' do
+    db_name = ENV['USER']
+    expect(system("psql -U #{db_name} -c 'select 1' #{db_name} &> /dev/null")).to be_true
+  end
+
+  it 'creates a postgres user' do
+    expect(system('psql -U postgres -c "select 1" &> /dev/null')).to be_true
+  end
+
 end
