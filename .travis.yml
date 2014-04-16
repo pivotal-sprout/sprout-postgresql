@@ -1,3 +1,4 @@
 language: objective-c
 script:
+  - uname -a
   - bundle exec rake
