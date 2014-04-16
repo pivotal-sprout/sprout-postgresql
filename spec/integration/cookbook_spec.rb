@@ -3,6 +3,7 @@ require 'socket'
 
 describe 'sprout-postgresql' do
   before :all do
+    system('psql -c "select 1" &> /dev/null') && fail('This system already has postgres installed')
     expect(system('soloist')).to be_true
   end
 
