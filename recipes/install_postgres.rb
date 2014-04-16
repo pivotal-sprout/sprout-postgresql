@@ -1,10 +1,10 @@
-include_recipe "homebrew"
+include_recipe 'homebrew'
 
 homebrew_root = File.join('/', 'usr', 'local')
 data_directory = File.join(homebrew_root, 'var', 'postgres')
-preexisting_databases = File.exists?(data_directory)
+preexisting_databases = File.exist?(data_directory)
 
-package "postgresql"
+package 'postgresql'
 
 directory data_directory do
   action :delete

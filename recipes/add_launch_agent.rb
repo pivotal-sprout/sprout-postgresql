@@ -1,11 +1,11 @@
-launch_agents_path = File.expand_path(File.join('~','Library', 'LaunchAgents'))
+launch_agents_path = File.expand_path('~/Library/LaunchAgents')
 directory launch_agents_path do
   action :create
   recursive true
   owner node['current_user']
 end
 
-plist_filename = node['sprout']['postgresql']['plist_filename'];
+plist_filename = node['sprout']['postgresql']['plist_filename']
 homebrew_root = '/usr/local'
 postgresql_install_path = File.join(homebrew_root, 'opt', 'postgresql')
 source_plist_filename = File.join(postgresql_install_path, plist_filename)

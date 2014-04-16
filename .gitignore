@@ -1,4 +1,5 @@
+Cheffile.lock
 tmp/
 cookbooks/
 .idea/
-Cheffile.lock
+.librarian/
