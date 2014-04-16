@@ -1,3 +1,4 @@
 language: objective-c
 script:
-  - bundle exec rake foodcritic rubocop spec:unit
+  - bundle exec rake
+#  - bundle exec rake default spec:integration
