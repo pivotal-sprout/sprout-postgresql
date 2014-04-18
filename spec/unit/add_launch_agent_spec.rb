@@ -7,23 +7,24 @@ describe 'sprout-postgresql::add_launch_agent' do
 
   before do
     stub_command('which git')
+    runner.converge(described_recipe)
+  end
+
+  it 'installs postgres if needed' do
+    expect(runner).to include_recipe('sprout-postgresql::install_postgres')
   end
 
   it 'ensures the launchAgents directory exists' do
-    runner.converge(described_recipe)
     expect(runner).to create_directory(launchagent_path).with(recursive: true).with(user: 'fauxhai')
   end
 
   it 'symlinks the homebrew launch configuration into the launchAgents folder' do
-    runner.converge(described_recipe)
-
     expect(runner).to create_link(
       "#{launchagent_path}/#{plist_filename}"
     ).with(to: "/usr/local/opt/postgresql/#{plist_filename}").with(link_type: Symbol)
   end
 
   it 'launches postgres' do
-    runner.converge(described_recipe)
     expect(runner).to run_execute(
       "launchctl load -w #{launchagent_path}/#{plist_filename}"
     ).with(user: 'fauxhai')

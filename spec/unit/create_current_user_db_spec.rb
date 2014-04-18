@@ -11,6 +11,10 @@ describe 'sprout-postgresql::create_current_user_db' do
     runner.converge(described_recipe)
   end
 
+  it 'starts postgres if needed' do
+    expect(runner).to include_recipe('sprout-postgresql::add_launch_agent')
+  end
+
   it 'creates the users database' do
     expect(runner).to run_execute('/usr/local/bin/createdb -U fauxhai').with(user: 'fauxhai')
   end

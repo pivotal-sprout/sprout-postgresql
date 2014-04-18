@@ -1,3 +1,5 @@
+include_recipe 'sprout-postgresql::add_launch_agent'
+
 db_name = node['current_user']
 
 execute 'create a database for the current user' do
