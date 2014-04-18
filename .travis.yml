@@ -1,3 +1,4 @@
 language: objective-c
 script:
-  - bundle exec rake ci
+  - bundle exec rake
+#  - bundle exec rake ci
