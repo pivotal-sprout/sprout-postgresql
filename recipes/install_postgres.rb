@@ -15,6 +15,6 @@ execute 'recreate database cluster' do # Mixlib::ShellOut incorrectly sets LC_AL
                                         # to "c" when installing the postgresql Forumala
   command "initdb #{data_directory}"
   environment 'LC_ALL' => nil
-  user node['current_user']
+  user node['sprout']['user']
   not_if { node['sprout']['postgresql']['preserve_dbs'] }
 end
