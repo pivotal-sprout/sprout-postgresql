@@ -76,3 +76,12 @@ install.  It has a precondition that postgresql is *not* installed on the system
 bundle
 bundle exec rake spec:integration
 ```
+
+Before or after running the integration specs, you can clean up the side effects by running the following. These commands will wipe out any postgres database(s) you may have running.
+
+```bash
+killall postgres
+brew remove --force postgresql
+rm -rf /usr/local/var/postgres/
+rm ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+```
