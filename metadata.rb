@@ -1,6 +1,6 @@
 name             'sprout-postgresql'
 maintainer       'Pivotal'
-maintainer_email 'sprout-maintainers@pivotallabs.com'
+maintainer_email 'sprout-maintainers@googlegroups.com'
 license          'MIT'
 description      'Recipes to install and configure PostgreSQL on OS X'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
