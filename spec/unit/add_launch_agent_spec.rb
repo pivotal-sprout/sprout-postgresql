@@ -21,7 +21,7 @@ describe 'sprout-postgresql::add_launch_agent' do
   it 'symlinks the homebrew launch configuration into the launchAgents folder' do
     expect(runner).to create_link(
       "#{launchagent_path}/#{plist_filename}"
-    ).with(to: "/usr/local/opt/postgresql/#{plist_filename}").with(link_type: Symbol)
+    ).with(to: "/usr/local/opt/postgresql/#{plist_filename}").with(link_type: :symbolic)
   end
 
   it 'launches postgres' do
