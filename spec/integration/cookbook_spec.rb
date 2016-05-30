@@ -3,14 +3,14 @@ require 'socket'
 
 describe 'sprout-postgresql' do
   before :all do
-    system('psql -c "select 1" &> /dev/null') && fail('This system already has postgres installed')
+    system('psql -c "select 1" &> /dev/null') && raise('This system already has postgres installed')
     expect(system('soloist')).to be_true
   end
 
   it 'runs postgres on the default port' do
-    expect {
+    expect do
       TCPSocket.open('localhost', 5432).close
-    }.not_to raise_error
+    end.not_to raise_error
 
     expect(system('psql -c "select 1" &> /dev/null')).to be_true
   end
@@ -31,5 +31,4 @@ describe 'sprout-postgresql' do
   it 'creates a postgres user' do
     expect(system('psql -U postgres -c "select 1" &> /dev/null')).to be_true
   end
-
 end

@@ -7,7 +7,7 @@ describe 'sprout-postgresql::create_current_user_db' do
 
   before do
     stub_command('which git')
-    stub_command(%q(psql -U fauxhai -c 'select 1' fauxhai &> /dev/null)).and_return(existing_db)
+    stub_command("psql -U fauxhai -c 'select 1' fauxhai &> /dev/null").and_return(existing_db)
     runner.converge(described_recipe)
   end
 

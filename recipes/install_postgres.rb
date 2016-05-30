@@ -11,8 +11,9 @@ directory data_directory do
   not_if { node['sprout']['postgresql']['preserve_dbs'] }
 end
 
-execute 'recreate database cluster' do # Mixlib::ShellOut incorrectly sets LC_ALL
-                                        # to "c" when installing the postgresql Forumala
+# Mixlib::ShellOut incorrectly sets LC_ALL to "c" when installing the
+# postgresql Forumala
+execute 'recreate database cluster' do
   command "initdb #{data_directory}"
   environment 'LC_ALL' => nil
   user node['sprout']['user']

@@ -1,6 +1,6 @@
 include_recipe 'sprout-postgresql::install_postgres'
 
-launch_agents_path = File.expand_path(File.join(node.default['sprout']['home'] , 'Library/LaunchAgents'))
+launch_agents_path = File.expand_path(File.join(node.default['sprout']['home'], 'Library/LaunchAgents'))
 directory launch_agents_path do
   action :create
   recursive true
