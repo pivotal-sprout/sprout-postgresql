@@ -1,7 +1,7 @@
 require 'unit/spec_helper'
 
 describe 'sprout-postgresql::install_postgres' do
-  let(:runner) { ChefSpec::Runner.new }
+  let(:runner) { ChefSpec::SoloRunner.new }
   let(:postgres_data_dir) { '/usr/local/var/postgres' }
   let(:preserve_dbs) { false }
 

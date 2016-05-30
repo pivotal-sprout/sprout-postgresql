@@ -1,7 +1,7 @@
 require 'unit/spec_helper'
 
 describe 'sprout-postgresql::add_launch_agent' do
-  let(:runner) { ChefSpec::Runner.new }
+  let(:runner) { ChefSpec::SoloRunner.new }
   let(:plist_filename) { runner.node['sprout']['postgresql']['plist_filename'] }
   let(:launchagent_path) { '/home/fauxhai/Library/LaunchAgents' }
 

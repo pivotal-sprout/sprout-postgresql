@@ -1,7 +1,7 @@
 require 'unit/spec_helper'
 
 describe 'sprout-postgresql::create_postgres_user' do
-  let(:runner) { ChefSpec::Runner.new }
+  let(:runner) { ChefSpec::SoloRunner.new }
   let(:existing_postgres_user) { false }
   let(:create_command) { '/usr/local/bin/createuser -U fauxhai --superuser postgres' }
 

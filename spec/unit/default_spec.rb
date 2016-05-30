@@ -1,7 +1,7 @@
 require 'unit/spec_helper'
 
 describe 'sprout-postgresql::default' do
-  let(:runner) { ChefSpec::Runner.new }
+  let(:runner) { ChefSpec::SoloRunner.new }
 
   before do
     stub_command('which git')
