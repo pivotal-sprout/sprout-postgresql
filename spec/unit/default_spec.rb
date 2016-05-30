@@ -1,6 +1,6 @@
 require 'unit/spec_helper'
 
-describe 'sprout-postgresql::default' do
+RSpec.describe 'sprout-postgresql::default' do
   let(:runner) { ChefSpec::SoloRunner.new }
 
   before do

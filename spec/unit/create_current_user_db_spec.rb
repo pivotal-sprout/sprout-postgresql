@@ -1,6 +1,6 @@
 require 'unit/spec_helper'
 
-describe 'sprout-postgresql::create_current_user_db' do
+RSpec.describe 'sprout-postgresql::create_current_user_db' do
   let(:runner) { ChefSpec::SoloRunner.new }
   let(:existing_db) { false }
   let(:create_command) { '/usr/local/bin/createdb -U fauxhai' }
