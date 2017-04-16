@@ -5,8 +5,8 @@ execute 'start postgresql' do
   user node['sprout']['user']
 end
 
-ruby_block 'wait four seconds for the database to start' do
+ruby_block 'wait ten seconds for the database to start' do
   block do
-    sleep 4
+    sleep 10
   end
 end
